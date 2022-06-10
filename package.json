@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "download-images": "ts-node ./src/download-images.ts"
+    "download-images": "ts-node ./src/download-images.ts",
+    "generate-metadata": "ts-node ./src/generate-metadata.ts"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.2",
