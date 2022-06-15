@@ -16,6 +16,8 @@ async function main() {
         allFiles.push(file)
     }
 
+    const totalSize = allFiles.reduce((s, file) => s + file.size, 0)
+
     allFiles
         .sort(({ name: a }, { name: b }) => (+(path.parse(a).name)) - (+(path.parse(b).name)))
 
@@ -26,13 +28,24 @@ async function main() {
     console.log(`CID: ${cid.toString()}`)
 
     let storedChunks = 0
-    let storedBytes = 0.01
+    let storedBytes = 0.00
+    const startTime = Date.now()
+
     await storage.storeCar(car, {
+        maxRetries: 100,
         onStoredChunk: (size) => {
             storedChunks++
             storedBytes += size
 
-            console.log(`Chunk stored: ${storedChunks} (${storedBytes} bytes)`)
+            const elapsedTime = Date.now() - startTime
+            const percentage = storedBytes / totalSize
+            const eta = new Date(Date.now() + (elapsedTime / percentage)).toISOString()
+
+            console.log(`Chunk stored: ${storedChunks} (${storedBytes} bytes) (${percentage * 100} %) ETA: ${eta}`)
+        },
+        // @ts-ignore
+        onFailedAttempt: (err) => {
+            console.error(`Error storing chunk`, err)
         }
     })
 
