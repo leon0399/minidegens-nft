@@ -8,7 +8,8 @@ const token = process.argv.slice(2)[0]
 async function main() {
     const storage = new NFTStorage({ token })
 
-    const files = filesFromPath(path.join(__dirname, '../images'))
+    const imagesPath = path.join(__dirname, '../images')
+    const files = filesFromPath(imagesPath, { pathPrefix: imagesPath })
 
     const allFiles = []
 
@@ -20,6 +21,8 @@ async function main() {
 
     allFiles
         .sort(({ name: a }, { name: b }) => (+(path.parse(a).name)) - (+(path.parse(b).name)))
+
+    console.log(allFiles)
 
     console.log(`Encoding directory: ${allFiles.length} files`)
 
