@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "images:download": "ts-node ./src/download-images.ts",
-    "images:upscale": "ts-node ./src/upscale-images.ts",
-    "images:upload": "ts-node ./src/upload-images.ts",
-    "metadata:generate": "ts-node ./src/generate-metadata.ts"
+    "images:download": "ts-node ./src/images-download.ts",
+    "images:upscale": "ts-node ./src/images-upscale.ts",
+    "images:upload": "ts-node ./src/images-upload.ts",
+    "metadata:generate": "ts-node ./src/metadata-generate.ts"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.2",
