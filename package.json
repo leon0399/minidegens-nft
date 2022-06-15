@@ -6,7 +6,8 @@
     "images:download": "ts-node ./src/images-download.ts",
     "images:upscale": "ts-node ./src/images-upscale.ts",
     "images:upload": "ts-node ./src/images-upload.ts",
-    "metadata:generate": "ts-node ./src/metadata-generate.ts"
+    "metadata:generate": "ts-node ./src/metadata-generate.ts",
+    "metadata:upload": "ts-node ./src/metadata-upload.ts"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.2",

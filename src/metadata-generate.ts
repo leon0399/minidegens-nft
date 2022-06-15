@@ -3,7 +3,7 @@ import path from 'path'
 
 const generateTokenMetadata = (n: number, metadata: { cid: string, name: string }) => ({
     name: `${metadata.name} #${n}`,
-    image: `ipfs://${metadata.cid}/${n}.png`,
+    image: `ipfs://${metadata.cid}/${n}.jpg`,
     attributes: [
         {
             trait_type: "AI",
